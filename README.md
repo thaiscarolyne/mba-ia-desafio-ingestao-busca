@@ -21,12 +21,18 @@
 
 4. **Subir o banco de dados**
 
-    - Na raíz do projeto rode o comando: docker-compose up -d
+    - Na raíz do projeto rode o comando:
+   ```bash
+    docker-compose up -d
+   ```
 
 5. **Rodar o script para ingestao do PDF no banco de dados**
 
     - Abrir a pasta src (cd src)
-    - Rodar o comando: python ingest.py
+    - Rodar o comando:
+   ```bash
+   python ingest.py
+   ```
 
 6. **Rodar o chat interativo com RAG e Memória**
 
