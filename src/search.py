@@ -1,9 +1,9 @@
-PROMPT_TEMPLATE = """
-CONTEXTO:
-{contexto}
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
-REGRAS:
-- Responda somente com base no CONTEXTO.
+def search_prompt():
+    return ChatPromptTemplate.from_messages([
+    ("system", """REGRAS:
+- Responda somente com base no CONTEXTO {pdf_context}
 - Se a informação não estiver explicitamente no CONTEXTO, responda:
   "Não tenho informações necessárias para responder sua pergunta."
 - Nunca invente ou use conhecimento externo.
@@ -17,13 +17,7 @@ Pergunta: "Quantos clientes temos em 2024?"
 Resposta: "Não tenho informações necessárias para responder sua pergunta."
 
 Pergunta: "Você acha isso bom ou ruim?"
-Resposta: "Não tenho informações necessárias para responder sua pergunta."
-
-PERGUNTA DO USUÁRIO:
-{pergunta}
-
-RESPONDA A "PERGUNTA DO USUÁRIO"
-"""
-
-def search_prompt(question=None):
-    pass
+Resposta: "Não tenho informações necessárias para responder sua pergunta."""),
+    MessagesPlaceholder(variable_name="contexto"),
+    ("human", "{question}"),
+])

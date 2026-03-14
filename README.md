@@ -27,3 +27,36 @@
 
     - Abrir a pasta src (cd src)
     - Rodar o comando: python ingest.py
+
+6. **Rodar o chat interativo com RAG e Memória**
+
+   - Rodar o chat interativo com RAG e Memória
+   - No terminal, dentro da pasta src, execute o comando:
+   ```bash
+   python chat.py
+   ```
+   - O sistema carregará o histórico e o contexto do banco de dados.
+   - Digite sua pergunta e pressione Enter para conversar com o assistente.
+   - Para encerrar o chat, basta digitar sair, exit ou parar.
+
+7. **Estrutura do Prompt e Regras de Negócio**
+
+   - O assistente foi configurado com um System Prompt estrito (search.py).
+   - Ele responderá apenas com base no conteúdo extraído do PDF.
+   - Caso a informação não exista no documento, ele retornará a mensagem padrão: "Não tenho informações necessárias para responder sua pergunta."
+   - O histórico de mensagens (memória) é mantido por session_id, permitindo conversas fluidas.
+
+8. **Principais Tecnologias do Projeto**
+
+   - LangChain: Orquestração da pipeline de IA e memória.
+   - OpenAI API: Geração de texto (LLM) e Embeddings.
+   - PGVector (PostgreSQL): Armazenamento e busca vetorial de documentos.
+   - Docker Compose: Gerenciamento do container de banco de dados.
+   - Python Dotenv: Gerenciamento de chaves e configurações.
+
+9. **Demonstração do funcionamento**
+
+![alt text](image.png)
+
+
+![alt text](image-1.png)
